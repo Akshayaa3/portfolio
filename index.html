@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshayaa A N - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 50, 0.8);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-in-out;
+        }
+        h2 {
+            text-align: center;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+        ul li:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 50, 0.8);
+        }
+        a {
+            color: #a0c4ff;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let sections = document.querySelectorAll("section");
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Akshayaa A N</h1>
+        <p>Data-driven learner | Aspiring Data Engineer | UI/UX Enthusiast</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>As a data-driven learner and aspiring data engineer with a passion for UI/UX and holistic development, I aim to contribute to data-driven solutions supporting sustainable development goals.</p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>RAG Based Query Specific Summarizer:</strong> Used FAISS and transformers for context-aware summarization.</li>
+            <li><strong>Dementia Patient Support App:</strong> AI-driven assistive tech leveraging computer vision and Unity.</li>
+            <li><strong>Assistive Tech for Vision:</strong> Research on computer vision-based mobility and object recognition.</li>
+        </ul>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Data Engineering, Python, SQL, Machine Learning, Scikit-Learn, Data Analysis, AR/VR, Unity Engine, .NET Framework, CAD Modeling (Fusion 360)</p>
+    </section>
+    
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <ul>
+            <li>Meta Presence Hackathon - MR-based development</li>
+            <li>Code’HER Hackathon - Won Track Prize for Dementia Assistance App</li>
+        </ul>
+    </section>
+    
+    <section id="video">
+        <h2>Demo Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6Lt708Zi5Ds" frameborder="0" allowfullscreen></iframe>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: akshayaa3ana@gmail.com</p>
+        <p>LinkedIn: <a href="#">linkedin.com</a></p>
+        <p>GitHub: <a href="#">github.com</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Akshayaa A N. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
