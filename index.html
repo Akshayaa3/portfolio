@@ -19,6 +19,13 @@
             padding: 20px;
             background: rgba(0, 0, 50, 0.8);
         }
+        #profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 3px solid white;
+        }
         nav ul {
             list-style: none;
             padding: 0;
@@ -62,6 +69,63 @@
         ul li:hover {
             transform: scale(1.05);
         }
+        .project-image {
+            width: 100%;
+            max-height: 200px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .switch-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .switch-label {
+            margin-right: 10px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .hidden {
+            display: none;
+        }
         footer {
             text-align: center;
             padding: 10px;
@@ -89,12 +153,18 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
+
+            // Toggle projects visibility
+            document.getElementById("toggle-projects").addEventListener("change", function() {
+                document.getElementById("projects").classList.toggle("hidden", !this.checked);
+            });
         });
     </script>
 </head>
 <body>
     <header>
         <h1>Akshayaa A N</h1>
+        <img id="profile-pic" src="profile.jpg" alt="Profile Picture">
         <p>Data-driven learner | Aspiring Data Engineer | UI/UX Enthusiast</p>
         <nav>
             <ul>
@@ -111,13 +181,30 @@
         <h2>About Me</h2>
         <p>As a data-driven learner and aspiring data engineer with a passion for UI/UX and holistic development, I aim to contribute to data-driven solutions supporting sustainable development goals.</p>
     </section>
-    
+
+    <div class="switch-container">
+        <span class="switch-label">Show Projects:</span>
+        <label class="switch">
+            <input type="checkbox" id="toggle-projects" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
     <section id="projects">
         <h2>Projects</h2>
         <ul>
-            <li><strong>RAG Based Query Specific Summarizer:</strong> Used FAISS and transformers for context-aware summarization.</li>
-            <li><strong>Dementia Patient Support App:</strong> AI-driven assistive tech leveraging computer vision and Unity.</li>
-            <li><strong>Assistive Tech for Vision:</strong> Research on computer vision-based mobility and object recognition.</li>
+            <li>
+                <strong>RAG Based Query Specific Summarizer:</strong> Used FAISS and transformers for context-aware summarization.
+                <img class="project-image" src="project1.jpg" alt="RAG Summarizer">
+            </li>
+            <li>
+                <strong>Dementia Patient Support App:</strong> AI-driven assistive tech leveraging computer vision and Unity.
+                <img class="project-image" src="project2.jpg" alt="Dementia Support App">
+            </li>
+            <li>
+                <strong>Assistive Tech for Vision:</strong> Research on computer vision-based mobility and object recognition.
+                <img class="project-image" src="project3.jpg" alt="Assistive Tech">
+            </li>
         </ul>
     </section>
     
@@ -136,7 +223,7 @@
     
     <section id="video">
         <h2>Demo Video</h2>
-         <iframe width="560" height="315" src="https://www.youtube.com/embed/6Lt708Zi5Ds" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6Lt708Zi5Ds" frameborder="0" allowfullscreen></iframe>
     </section>
     
     <section id="contact">
@@ -151,3 +238,4 @@
     </footer>
 </body>
 </html>
+
